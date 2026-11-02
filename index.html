@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Possessive Determiners – Worksheet</title>
+<style>
+:root{--paper:#fbfaf6;--ink:#1d2733;--dim:#5d6b7a;--line:#cfd6dd;--accent:#1f5f8b;--ok:#1d7a4a;--bad:#c0392b;--hl:#fff3c4}
+*{box-sizing:border-box}
+body{margin:0;background:#e9edf0;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.55}
+main{max-width:760px;margin:1.5rem auto;background:var(--paper);padding:2rem clamp(1rem,5vw,3rem) 3rem;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+h1{font-size:2rem;margin:.2rem 0 .3rem;color:var(--accent)}
+h2{font-size:1.25rem;margin:2.2rem 0 .3rem;padding-bottom:.3rem;border-bottom:2px solid var(--accent)}
+p.task{margin:.3rem 0 1rem;color:var(--dim);font-style:italic}
+table{border-collapse:collapse;width:100%;font-family:system-ui,sans-serif;margin:.6rem 0}
+th,td{border:1px solid var(--line);padding:.45rem .7rem;text-align:left}
+th{background:#eaf1f6}
+td b{color:var(--accent)}
+ol{padding-left:1.6rem}
+li{margin:.7rem 0}
+input.gap{font:inherit;width:6rem;text-align:center;border:0;border-bottom:2px solid var(--ink);background:var(--hl);padding:.05rem .2rem;border-radius:3px 3px 0 0}
+input.gap.ok{background:#d8f0e1;border-color:var(--ok)}
+input.gap.bad{background:#f8dcd8;border-color:var(--bad)}
+.hint{font-family:system-ui,sans-serif;font-size:.8rem;color:var(--dim)}
+.pool,.line{display:flex;flex-wrap:wrap;gap:.4rem;min-height:2.6rem;padding:.4rem;border-radius:8px}
+.pool{background:#eef1f4}
+.line{border:2px dashed var(--line);margin:.4rem 0}
+.line.ok{border:2px solid var(--ok);background:#e6f5ec}
+.line.bad{border:2px solid var(--bad);background:#fbe9e6}
+.chip{font:inherit;font-family:system-ui,sans-serif;background:#fff;border:1.5px solid var(--accent);color:var(--accent);border-radius:8px;padding:.25rem .7rem;cursor:pointer}
+.chip:hover{background:var(--accent);color:#fff}
+.dot{align-self:center;font-weight:bold}
+textarea{width:100%;font:inherit;min-height:3.6rem;border:1.5px solid var(--line);border-radius:8px;padding:.5rem;background:#fff;resize:vertical}
+.actions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:.8rem;font-family:system-ui,sans-serif}
+button.btn{font:inherit;font-family:system-ui,sans-serif;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:.5rem 1.1rem;cursor:pointer}
+button.btn.alt{background:#fff;color:var(--accent);border:1.5px solid var(--accent)}
+button.btn:focus-visible,.chip:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #e6a700;outline-offset:2px}
+.score{font-weight:600}
+.reading{background:#fff;border-left:4px solid var(--accent);padding:.8rem 1.2rem;margin:.6rem 0 1.2rem;border-radius:0 8px 8px 0}
+.reading p{margin:.6rem 0}
+select{font:inherit;font-family:system-ui,sans-serif;border:1.5px solid var(--line);border-radius:6px;padding:.2rem .3rem;background:#fff}
+select.ok{background:#d8f0e1;border-color:var(--ok)}
+select.bad{background:#f8dcd8;border-color:var(--bad)}
+input.gap.wide{width:11rem}
+td input.gap{width:5rem}
+.ans{font-family:system-ui,sans-serif;font-size:.8rem;color:var(--bad);margin-left:.4rem}
+@media print{
+  body{background:#fff}
+  main{box-shadow:none;margin:0;max-width:none}
+  .actions,.pool{display:none}
+  textarea{border:0;border-bottom:1px solid #999;border-radius:0;min-height:2.4rem}
+  input.gap{background:none}
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>Possessive Determiners</h1>
+
+  <h2>Remember</h2>
+  <p class="task">Possessive determiners show who something belongs to. They stand <b>before a noun</b>: <i>my</i> book, <i>her</i> bag.</p>
+  <table>
+    <tr><th>Person</th><th>Possessive determiner</th><th>Example</th></tr>
+    <tr><td>I</td><td><b>my</b></td><td>This is my pencil.</td></tr>
+    <tr><td>you</td><td><b>your</b></td><td>Is this your bag?</td></tr>
+    <tr><td>he</td><td><b>his</b></td><td>Tom likes his teacher.</td></tr>
+    <tr><td>she</td><td><b>her</b></td><td>Mila reads her book.</td></tr>
+    <tr><td>it</td><td><b>its</b></td><td>The dog wags its tail.</td></tr>
+    <tr><td>we</td><td><b>our</b></td><td>We love our class.</td></tr>
+    <tr><td>they</td><td><b>their</b></td><td>They clean their room.</td></tr>
+  </table>
+  <p class="hint">Careful: <b>its</b> (belonging to it) ≠ <b>it's</b> (= it is).</p>
+
+  <h2>Exercise 1 – Fill in</h2>
+  <p class="task">Write the correct possessive determiner in each gap.</p>
+  <ol id="gaps"></ol>
+  <div class="actions">
+    <button class="btn" onclick="checkGaps()">Check</button>
+    <button class="btn alt" onclick="resetGaps()">Reset</button>
+    <span class="score" id="score1"></span>
+  </div>
+
+  <h2>Exercise 2 – Build sentences</h2>
+  <p class="task">Click the words in the right order to build a sentence. Click a word in the line to take it back.</p>
+  <div id="build"></div>
+  <div class="actions"><span class="score" id="score2"></span></div>
+
+  <h2>Exercise 3 – Write your own</h2>
+  <p class="task">Write one sentence for each prompt. Use a possessive determiner.</p>
+  <ol id="own"></ol>
+
+  <h2>Exercise 4 – Short answers</h2>
+  <p class="task">Answer the questions with a short answer. Write the missing verb (e.g. <i>Yes, she <b>is</b>.</i> / <i>No, I <b>don't</b>.</i>).</p>
+  <ol id="sa"></ol>
+  <div class="actions">
+    <button class="btn" onclick="CK.sa.check()">Check</button>
+    <button class="btn alt" onclick="CK.sa.reset()">Reset</button>
+    <span class="score" id="score_sa"></span>
+  </div>
+
+  <h2>Exercise 5 – Reading: My school</h2>
+  <p class="task">Read the text. Then do the tasks.</p>
+  <div class="reading">
+    <p><b>My school day</b></p>
+    <p>My name is Sophie and I am twelve years old. I go to Greenfield School in Manchester. My school day starts at 8:45 and ends at 3:30. We have six lessons every day.</p>
+    <p>On Mondays we have maths, English and art. I love art because our teacher, Mr Brown, is funny and we paint a lot. My best friend Sam doesn't like art. His favourite subject is PE. He plays football with his team after school.</p>
+    <p>I'm not good at science, but I like our science room. It has a big skeleton called Bob! On Fridays we have music. Our music teacher plays the guitar and we sing songs.</p>
+    <p>At lunchtime we eat in the canteen. I usually have a sandwich and an apple. After lunch, we play in the schoolyard. I like my school because my classmates are nice and we have a lot of fun.</p>
+  </div>
+
+  <p class="task"><b>A)</b> True, false or not in the text? Choose.</p>
+  <ol id="tf"></ol>
+  <div class="actions">
+    <button class="btn" onclick="CK.tf.check()">Check</button>
+    <button class="btn alt" onclick="CK.tf.reset()">Reset</button>
+    <span class="score" id="score_tf"></span>
+  </div>
+
+  <p class="task" style="margin-top:1.6rem"><b>B)</b> Answer the questions with a few words.</p>
+  <ol id="rq"></ol>
+  <div class="actions">
+    <button class="btn" onclick="CK.rq.check()">Check</button>
+    <button class="btn alt" onclick="CK.rq.reset()">Reset</button>
+    <span class="score" id="score_rq"></span>
+  </div>
+
+  <p class="task" style="margin-top:1.6rem"><b>C)</b> Write two full sentences: What is <i>your</i> favourite subject and why?</p>
+  <textarea rows="3" aria-label="My favourite subject"></textarea>
+
+  <h2>Exercise 6 – <i>be</i> and <i>have</i></h2>
+  <p class="task"><b>A)</b> Complete the table with the correct forms (present tense).</p>
+  <table id="conj"></table>
+  <div class="actions">
+    <button class="btn" onclick="CK.conj.check()">Check</button>
+    <button class="btn alt" onclick="CK.conj.reset()">Reset</button>
+    <span class="score" id="score_conj"></span>
+  </div>
+
+  <p class="task" style="margin-top:1.6rem"><b>B)</b> Write the correct form of <i>be</i> or <i>have</i> in each gap.</p>
+  <ol id="bh"></ol>
+  <div class="actions">
+    <button class="btn" onclick="CK.bh.check()">Check</button>
+    <button class="btn alt" onclick="CK.bh.reset()">Reset</button>
+    <span class="score" id="score_bh"></span>
+  </div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+
+/* ---------- Exercise 1 ---------- */
+const GAPS = [
+  ['I like', 'my', 'new bike.'],
+  ['Anna and Tom love', 'their', 'dog.'],
+  ['Martin plays with', 'his', 'friends.'],
+  ['Mila is reading', 'her', 'book.'],
+  ['We clean', 'our', 'classroom every Friday.'],
+  ['Do you have', 'your', 'pencil case, Elia?'],
+  ['The cat is drinking', 'its', 'milk.'],
+  ['Laurin and I are doing', 'our', 'homework.'],
+  ['Where are', 'your', 'shoes, Moreno?'],
+  ['Moreno has a ball.', 'his', 'ball is red.', 'cap']
+];
+$('gaps').innerHTML = GAPS.map((g, i) =>
+  `<li>${g[0]} <input class="gap" id="g${i}" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="gap ${i + 1}"> ${g[2]}</li>`
+).join('');
+
+function checkGaps(){
+  let n = 0;
+  GAPS.forEach((g, i) => {
+    const el = $('g' + i), v = el.value.trim().toLowerCase();
+    const ok = v === g[1];
+    el.classList.toggle('ok', ok);
+    el.classList.toggle('bad', !ok && v !== '');
+    if (ok) n++;
+    else if (v !== '') el.title = 'Try again';
+  });
+  $('score1').textContent = `${n} / ${GAPS.length} correct`;
+}
+function resetGaps(){
+  GAPS.forEach((g, i) => { const el = $('g' + i); el.value = ''; el.className = 'gap'; });
+  $('score1').textContent = '';
+}
+
+/* ---------- Exercise 2 ---------- */
+const SENT = [
+  ['Her bag is under our desk', '.'],
+  ['Their teacher is in his office', '.'],
+  ['Our class has its own garden', '.'],
+  ['Is this your pencil case', '?'],
+  ['My friends visit me on my birthday', '.']
+];
+const done2 = new Set();
+function shuffle(a){
+  const b = a.slice();
+  do { for (let i = b.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } }
+  while (b.join(' ') === a.join(' ') && b.length > 1);
+  return b;
+}
+SENT.forEach(([text, p], i) => {
+  const words = text.split(' ');
+  const box = document.createElement('div');
+  box.innerHTML = `<div class="line" id="l${i}"></div><div class="pool" id="p${i}"></div><br>`;
+  $('build').appendChild(box);
+  const line = box.querySelector('.line'), pool = box.querySelector('.pool');
+  const dot = document.createElement('span'); dot.className = 'dot'; dot.textContent = p;
+  const render = () => { if (!line.contains(dot)) line.appendChild(dot); else line.appendChild(dot); };
+  shuffle(words).forEach(w => {
+    const b = document.createElement('button');
+    b.className = 'chip'; b.textContent = w;
+    b.onclick = () => {
+      if (b.parentNode === pool){ line.insertBefore(b, dot); }
+      else { pool.appendChild(b); }
+      line.classList.remove('ok', 'bad');
+      const placed = [...line.querySelectorAll('.chip')].map(x => x.textContent);
+      if (placed.length === words.length){
+        const ok = placed.join(' ') === text;
+        line.classList.add(ok ? 'ok' : 'bad');
+        if (ok) done2.add(i); else done2.delete(i);
+      } else done2.delete(i);
+      $('score2').textContent = done2.size ? `${done2.size} / ${SENT.length} sentences correct` : '';
+    };
+    pool.appendChild(b);
+  });
+  line.appendChild(dot);
+});
+
+/* ---------- Exercise 3 ---------- */
+const OWN = [
+  ['Write about your best friend.', 'e.g. His name is …'],
+  ['Write about your family.', 'e.g. My mother works …'],
+  ['Write about you and your classmates.', 'e.g. Our teacher is …'],
+  ['Write about a pet or an animal.', 'e.g. Its fur is …']
+];
+$('own').innerHTML = OWN.map(o =>
+  `<li>${o[0]} <span class="hint">${o[1]}</span><textarea rows="2" aria-label="${o[0]}"></textarea></li>`).join('');
+
+/* ---------- Generic checker for new exercises ---------- */
+const CK = {};
+const norm = t => t.trim().toLowerCase().replace(/[\u2019\u2018]/g, "'").replace(/[.!?]+$/, '').replace(/\s+/g, ' ');
+function register(key, els, answers, scoreId, mode){
+  // mode 'exact' = answer must equal one of the alternatives; 'key' = answer must contain a keyword
+  const ok = (el, i) => {
+    const v = norm(el.value);
+    return answers[i].some(a => mode === 'key' ? v.includes(a) : v === a);
+  };
+  CK[key] = {
+    check(){
+      let n = 0;
+      els.forEach((el, i) => {
+        const good = ok(el, i), empty = !el.value.trim() || el.value === '';
+        el.classList.toggle('ok', good);
+        el.classList.toggle('bad', !good && !empty);
+        const old = el.parentNode.querySelector('.ans[data-for="' + key + i + '"]');
+        if (old) old.remove();
+        if (!good && !empty && mode !== 'exact'){
+          const sp = document.createElement('span');
+          sp.className = 'ans'; sp.dataset.for = key + i;
+          sp.textContent = '→ ' + answers[i][0];
+          el.after(sp);
+        }
+        if (good) n++;
+      });
+      $(scoreId).textContent = n + ' / ' + els.length + ' correct';
+    },
+    reset(){
+      els.forEach((el, i) => {
+        el.value = ''; el.classList.remove('ok', 'bad');
+        const old = el.parentNode.querySelector('.ans[data-for="' + key + i + '"]');
+        if (old) old.remove();
+      });
+      $(scoreId).textContent = '';
+    }
+  };
+}
+
+/* Exercise 4 */
+const SA = [
+  ['Is Elia in your class?', 'Yes, he', ['is']],
+  ['Are you and Mila friends?', 'Yes, we', ['are']],
+  ['Do you like maths?', 'No, I', ["don't", 'do not']],
+  ['Does Martin have a pet?', 'Yes, he', ['does']],
+  ['Has Laurin got a bike?', 'No, he', ["hasn't", 'has not']],
+  ['Are Moreno and Mila in the gym?', 'No, they', ["aren't", 'are not']],
+  ['Does your teacher speak German?', 'Yes, she', ['does']],
+  ['Do you have homework today?', 'Yes, I', ['do']]
+];
+$('sa').innerHTML = SA.map((q, i) =>
+  `<li>${q[0]}<br>${q[1]} <input class="gap" id="sa${i}" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="short answer ${i + 1}">.</li>`).join('');
+register('sa', SA.map((_, i) => $('sa' + i)), SA.map(q => q[2]), 'score_sa', 'exact');
+
+/* Exercise 5 A */
+const TF = [
+  ['Sophie is twelve years old.', 'True'],
+  ['School starts at 8:45.', 'True'],
+  ['Sophie has seven lessons every day.', 'False'],
+  ['Sophie loves art.', 'True'],
+  ["Sam's favourite subject is art.", 'False'],
+  ['Sophie has a younger brother.', 'Not in the text'],
+  ['The class has music on Fridays.', 'True'],
+  ['Sophie eats pizza at lunchtime.', 'False']
+];
+$('tf').innerHTML = TF.map((t, i) =>
+  `<li>${t[0]} <select id="tf${i}" aria-label="statement ${i + 1}"><option value="">–</option><option>True</option><option>False</option><option>Not in the text</option></select></li>`).join('');
+CK.tf = {
+  check(){
+    let n = 0;
+    TF.forEach((t, i) => {
+      const el = $('tf' + i), good = el.value === t[1];
+      el.classList.toggle('ok', good);
+      el.classList.toggle('bad', !good && el.value !== '');
+      if (good) n++;
+    });
+    $('score_tf').textContent = n + ' / ' + TF.length + ' correct';
+  },
+  reset(){
+    TF.forEach((t, i) => { const el = $('tf' + i); el.value = ''; el.className = ''; });
+    $('score_tf').textContent = '';
+  }
+};
+
+/* Exercise 5 B */
+const RQ = [
+  ["Where is Sophie's school?", ['manchester']],
+  ["What is the art teacher's name?", ['brown']],
+  ['What is the skeleton called?', ['bob']],
+  ['What does Sophie usually have for lunch?', ['sandwich']],
+  ['When does the class have music?', ['friday']]
+];
+$('rq').innerHTML = RQ.map((q, i) =>
+  `<li>${q[0]}<br><input class="gap wide" id="rq${i}" autocomplete="off" spellcheck="false" aria-label="question ${i + 1}"></li>`).join('');
+register('rq', RQ.map((_, i) => $('rq' + i)), RQ.map(q => q[1]), 'score_rq', 'key');
+
+/* Exercise 6 A */
+const PERS = ['I', 'you', 'he / she / it', 'we', 'you (plural)', 'they'];
+const BE = ['am', 'are', 'is', 'are', 'are', 'are'];
+const HAVE = ['have', 'have', 'has', 'have', 'have', 'have'];
+$('conj').innerHTML = '<tr><th>Person</th><th><i>be</i></th><th><i>have</i></th></tr>' +
+  PERS.map((p, i) => `<tr><td>${p}</td><td><input class="gap" id="cb${i}" autocomplete="off" spellcheck="false" aria-label="be, ${p}"></td><td><input class="gap" id="ch${i}" autocomplete="off" spellcheck="false" aria-label="have, ${p}"></td></tr>`).join('');
+register('conj',
+  [...PERS.map((_, i) => $('cb' + i)), ...PERS.map((_, i) => $('ch' + i))],
+  [...BE, ...HAVE].map(a => [a]), 'score_conj', 'exact');
+
+/* Exercise 6 B */
+const BH = [
+  ['My sister', 'be', 'is', 'twelve years old.'],
+  ['We', 'have', 'have', 'two English lessons on Tuesday.'],
+  ['Mila and Elia', 'be', 'are', 'in the library.'],
+  ['Martin', 'have', 'has', 'a new schoolbag.'],
+  ['I', 'be', 'am', 'in class 6.'],
+  ['You', 'have', 'have', 'a nice pencil case.'],
+  ['Moreno', 'be', 'is', 'very tall.'],
+  ['They', 'have', 'have', 'lunch at twelve o\'clock.'],
+  ['Laurin', 'have', 'has', 'a football in his bag.'],
+  ['The students', 'be', 'are', 'in the schoolyard.']
+];
+$('bh').innerHTML = BH.map((b, i) =>
+  `<li>${b[0]} <input class="gap" id="bh${i}" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="gap ${i + 1}"> (${b[1]}) ${b[3]}</li>`).join('');
+register('bh', BH.map((_, i) => $('bh' + i)), BH.map(b => [b[2]]), 'score_bh', 'exact');
+</script>
+</body>
+</html>
